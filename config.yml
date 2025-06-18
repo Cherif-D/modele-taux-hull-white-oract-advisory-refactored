@@ -1,0 +1,24 @@
+# Configuration du projet Hull-White pour la calibration et la simulation de taux d'intérêt
+# Ce fichier YAML est utilisé pour stocker les paramètres de configuration du projet.
+# Ce fichier YAML centralise tous les paramètres configurables du projet.
+# Cela permet de modifier le comportement du programme sans toucher au code Python,
+# facilitant les expérimentations et la maintenance.
+
+# Section des chemins de fichiers de données
+paths:
+  zc_rates: "data/zc_rates.csv"           # Chemin vers le fichier CSV des taux zéro-coupon
+  swaption_vols: "data/swaption_vols.csv" # Chemin vers le fichier CSV des volatilités de swaptions
+
+# Section des paramètres du modèle Hull-White
+model:
+  initial_a: 0.05       # Valeur initiale du paramètre 'a' (vitesse de retour à la moyenne) pour la calibration
+  initial_sigma: 0.01   # Valeur initiale du paramètre 'sigma' (volatilité) pour la calibration
+  bounds:               # Bornes pour les paramètres 'a' et 'sigma' lors de l'optimisation
+    a: [0.0001, 1.0]    # 'a' doit être > 0 et < 1.0 (pour éviter des comportements extrêmes)
+    sigma: [0.0001, 0.5] # 'sigma' doit être > 0 et < 0.5 (pour éviter des volatilités irréalistes)
+
+# Section des paramètres de simulation Monte Carlo
+simulation:
+  num_paths: 100        # Nombre de trajectoires de taux à simuler
+  tenor_years: 10       # Durée totale de la simulation en années
+  dt: 0.003968253968253968 # Pas de temps de simulation en années (1/252.0 pour environ 1 jour ouvré)
