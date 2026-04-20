@@ -192,3 +192,19 @@ cython_debug/
 #  refer to https://docs.cursor.com/context/ignore-files
 .cursorignore
 .cursorindexingignore
+# Project outputs
+outputs/
+__pycache__/
+*.pyc
+output/
+hull_white.log
+.codex
+
+# Stage cleanup: keep repo focused on source code
+docs/
+reports/
+RAPPORT_COMPARATIF_ANCIEN_VS_NOUVEAU_HULL_WHITE.md
+RAPPORT_COMPARATIF_ANCIEN_VS_NOUVEAU_HULL_WHITE.pdf
+START_HERE.md
+notebooks/
+notebooks/explore_data.ipynb
